@@ -96,7 +96,7 @@ const InfoPage = () => {
                                                 sx= {{height: 200}}
                                                 component="img"
                                                 src={getImage(files, event.attributes.imagen)} // Replace with the URL of your image
-                                                alt="logo"
+                                                alt="event"
                                             />
                                         )}
                                         <CardContent>
