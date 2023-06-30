@@ -5,23 +5,14 @@ import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 const HomePage = () => {
-    const [response, setResponse] = useState();
-
-    const getData = async () => {
-        const dataLineas = await getLineas();
-        setResponse(dataLineas);
-    }
-
-    useEffect(()=>{
-        getData();
-    }, []);
+    
 
     return (
-        <div>
+        <>
         <NavBar />
         
         <Outlet/>
-        </div>
+        </>
     );
 };
 

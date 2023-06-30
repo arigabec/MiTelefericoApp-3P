@@ -1,6 +1,7 @@
 import { Card, CardContent, Container, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getLineas } from "../services/service";
+import LinePage from "./LinePage";
 
 const InfoPage = () => {
 
@@ -19,6 +20,7 @@ const InfoPage = () => {
             <Grid container spacing={2}>
             {
                 response && response.data.map((line => {
+                    console.log(line)
                     return (
                         <>
                             <Grid item xs={12} md={4}>
@@ -38,6 +40,7 @@ const InfoPage = () => {
                 }))
             }
             </Grid>
+            <LinePage/>
         </Container>
     );
 }
