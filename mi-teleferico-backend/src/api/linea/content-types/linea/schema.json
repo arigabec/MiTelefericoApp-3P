@@ -18,22 +18,14 @@
     "zona": {
       "type": "string"
     },
-    "imagen": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "duracion": {
       "type": "string"
     },
     "logo": {
       "type": "text"
+    },
+    "imagen": {
+      "type": "string"
     }
   }
 }

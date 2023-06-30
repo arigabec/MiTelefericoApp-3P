@@ -14,6 +14,7 @@ import SearchPage from "./pages/SearchPage";
 import LinePage from "./pages/LinePage";
 import { getLineas } from "./services/service";
 import SuggestionPage from "./pages/SuggestionPage";
+import MapPage from "./pages/MapPage";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
             return data.filter((line) => id == line.id);
           }
         },
+      },
+      {
+        path: "mapa",
+        element: <MapPage />,
       },
     ],
   },
