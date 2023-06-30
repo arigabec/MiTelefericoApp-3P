@@ -1,16 +1,21 @@
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getFiles } from "../services/service";
+import {  useNavigate } from "react-router-dom";
 
 const LineCard = ({line}) => {
     const [files, setFiles] = useState();
+    const navigate = useNavigate();
+
+    const showMe = (line) => {
+        console.log(line.id)
+        navigate(`/linea/${line.id}`)
+        
+    }
 
     const getData = async () => {
-
         const dataFiles = await getFiles();
         setFiles(dataFiles);
-
-
     }
 
     useEffect(()=>{
@@ -20,7 +25,7 @@ const LineCard = ({line}) => {
     const getImage = (files, filename) => {
         if (files) {
             const url = "http://localhost:1337" + files.filter(file => file.name == filename)[0].url;
-         //   console.log(url);
+            console.log(url);
             return url;
         }
     }

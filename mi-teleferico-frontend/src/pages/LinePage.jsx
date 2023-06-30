@@ -47,7 +47,7 @@ const LinePage = () => {
           bgcolor: '#eeeeee',
         
         }}
-        elevation={10}
+        elevation={5}
       >
         <Box
           sx={{
@@ -56,7 +56,6 @@ const LinePage = () => {
             fontFamily: "sans-serif",
             fontWeight: "Bold",
             textAlign: "center",
-
             mx: 4,
             mt: 4,
           }}
@@ -65,7 +64,7 @@ const LinePage = () => {
         </Box>
       </Paper>
       <Paper
-        elevation={10}
+        elevation={5}
         sx={{
           p: 5,
           borderTopLeftRadius: "0px",

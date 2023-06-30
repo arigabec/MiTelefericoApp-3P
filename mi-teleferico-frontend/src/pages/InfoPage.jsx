@@ -1,8 +1,6 @@
 import { Card, CardMedia, CardContent, Container, Grid, Typography, CardActionArea } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getLineas, getFiles, getEvents } from "../services/service";
-import LinePage from "./LinePage";
-import {  useNavigate } from "react-router-dom";
 import LineCard from "../components/LineCard";
 
 
@@ -10,13 +8,11 @@ const InfoPage = () => {
     const [response, setResponse] = useState();
     const [files, setFiles] = useState();
     const [events, setEvents] = useState();
-    const navigate = useNavigate();
 
     const getData = async () => {
         const dataLineas = await getLineas();
         setResponse(dataLineas);
 
-        console.log(dataLineas);
         const dataFiles = await getFiles();
         setFiles(dataFiles);
 
@@ -27,12 +23,6 @@ const InfoPage = () => {
     useEffect(()=>{
         getData();
     }, []);
-
-    const showMe = (line) => {
-        console.log(line.id)
-        navigate(`/linea/${line.id}`)
-        
-    }
 
     const getImage = (files, filename) => {
         if (files) {
@@ -68,7 +58,7 @@ const InfoPage = () => {
                                             <CardMedia
                                                 sx= {{height: 200}}
                                                 component="img"
-                                                src={getImage(files, event.attributes.imagen)} // Replace with the URL of your image
+                                                src={getImage(files, event.attributes.imagen)}
                                                 alt="event"
                                             />
                                         )}
