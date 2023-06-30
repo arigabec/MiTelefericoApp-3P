@@ -1,25 +1,54 @@
-import { Box, Card, Stack } from "@mui/material";
+import { Box, Card, Container, Stack, Typography } from "@mui/material";
 import NextCableCar from "../components/NextCableCar";
 import Horario from "../components/Horario";
-import { useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
+import { colores } from "./../helpers/colors";
+import { useState } from "react";
 
 const LinePage = () => {
-    const { id} = useParams();
-    console.log(id);
+  const linea = useLoaderData();
+  const { id } = useParams();
+  const [sw, setSw] = useState(true);
+  console.log(colores[Number(id)]);
   return (
-    <Box sx={{width: 1, height: 1, m: 2, p:2}}>
-    <Stack direction="row" spacing={2} sx={{width: 1}}>
-      <Box sx={{width: 2/3}}>Mapa</Box>
-      <Stack direction="column" sx={{width: 1/3}} spacing={2}>
-      <Card>Activo, Mantenimiento</Card>
+    <Container sx={{ width: 1, height: 1, mt: 2, px: 2 }}>
+      <Box
+        sx={{
+          color: colores[Number(id) - 1],
+          fontSize: 50,
+          fontFamily: "sans-serif",
+          fontWeight: "Bold",
+          m: 4
+        }}
+      >
+        Linea {` ${linea[0].attributes.nombre}`}
+      </Box>
+      <Stack direction="row" spacing={8} sx={{ width: 1, m: 2}}>
+        <Stack direction="column" sx={{ width: 2 / 3 }} spacing={2}>
+          <Box sx={{ border: "GrayText", background: "#abcdef", height: 1 }}>
+            Mapa
+          </Box>
+        </Stack>
 
-        <NextCableCar />
-        <Horario/>
-        <Card>pan</Card>
-        <Card>Queso</Card>
+        <Stack direction="column" sx={{ width: 1 / 3 }} spacing={2}>
+        <Box
+        sx={{
+          color: `${sw ? '#4caf50' : '#f44336'}`,
+          fontSize: 30,
+          fontFamily: "sans-serif",
+          fontWeight: 700,
+        }}
+      >
+        La linea está 
+        {sw ? ' activa' :' en mantenimiento'}
+      </Box>
+
+          <NextCableCar />
+          <Horario />
+ 
+        </Stack>
       </Stack>
-    </Stack>
-    </Box>
+    </Container>
   );
 };
 export default LinePage;

@@ -2,16 +2,20 @@ import { Card, CardMedia, CardContent, Container, Grid, Typography, CardActionAr
 import { useEffect, useState } from "react";
 import { getLineas, getFiles, getEvents } from "../services/service";
 import LinePage from "./LinePage";
+import {  useNavigate } from "react-router-dom";
+
 
 const InfoPage = () => {
     const [response, setResponse] = useState();
     const [files, setFiles] = useState();
     const [events, setEvents] = useState();
+    const navigate = useNavigate();
 
     const getData = async () => {
         const dataLineas = await getLineas();
         setResponse(dataLineas);
 
+        console.log(dataLineas);
         const dataFiles = await getFiles();
         setFiles(dataFiles);
 
@@ -23,14 +27,16 @@ const InfoPage = () => {
         getData();
     }, []);
 
-    const showMe = (title) => {
-        console.log(title)
+    const showMe = (line) => {
+        console.log(line.id)
+        navigate(`/linea/${line.id}`)
+        
     }
 
     const getImage = (files, filename) => {
         if (files) {
             const url = "http://localhost:1337" + files.filter(file => file.name == filename)[0].url;
-            console.log(url);
+         //   console.log(url);
             return url;
         }
     }
@@ -43,11 +49,10 @@ const InfoPage = () => {
             <Grid container spacing={2}>
             {
                 response && response.data.map((line => {
-                    console.log(response.data)
                     return (
                         <>
                             <Grid item xs={12} sm={2.4} >
-                                <Card display='flex' alignItems='center' onClick={() => showMe(line.attributes.linea)}>
+                                <Card display='flex' alignItems='center' onClick={() => showMe(line)}>
                                     <CardContent>
                                     <Grid container spacing={2} alignItems="center">
                                         <Grid item xs={1} />
@@ -110,7 +115,6 @@ const InfoPage = () => {
                 }))
             }
             </Grid>
-            <LinePage/>
         </Container>
     );
 }

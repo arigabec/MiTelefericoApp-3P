@@ -1,24 +1,27 @@
-import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import React, { memo, useState } from "react";
+import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavBar = () => {
-  const [sw, setSw ] = useState(false);
-  const goTo = () => {
-    setSw(!sw);
-  }
+  const navigate = useNavigate();
+  const goTo = (direccion) => {
+    navigate(direccion)
+  };
   return (
-    <AppBar position='static' color="primary" >
+    <AppBar position="static" color="primary">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Mi Teleférico
         </Typography>
-        <Button color="inherit" onClick={() => goTo}> Info </Button>
-        <Button color="inherit"> Buscar </Button>
-        <Button color="inherit"> Sugerencias </Button>
+          <Button color="inherit" onClick={() => goTo('/info')}>
+            Info
+          </Button>
+
+        <Button color="inherit" onClick={() => goTo('/buscar')}> Buscar </Button>
+        <Button color="inherit" onClick={() => goTo('/sugerencia')}> Sugerencias </Button>
       </Toolbar>
     </AppBar>
   );
 };
 
-export default NavBar;
+export default memo(NavBar);

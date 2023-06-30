@@ -8,7 +8,7 @@ const NextCableCar = () => {
     const countdown = setInterval(() => {
       setTimer((prevTimer) => prevTimer - 1);
     }, 1000);
-    if (timer === 0) {
+    if (timer === -1) {
       setTimer(Math.trunc(Math.random() * 10 + 5));
     }
 
@@ -24,11 +24,30 @@ const NextCableCar = () => {
   };
 
   return (
-    <Paper sx={{ px: 10, py: 2 }}>
-      <Stack direction="row">
-        <Typography> Siguiente Cabina: </Typography>
+    <Paper sx={{ weight: 1, py: 2 }}>
+      <Stack direction="column">
+        <Box sx={{
+            fontFamily: "sans-serif",
+            textAlign: "center",
+            fontWeight: 500,
+            fontSize: 20,
+            p: 1,
+            mb: 1
 
-        <Typography> {formatTime(timer)}</Typography>
+          }}> Siguiente cabina en </Box>
+
+        <Box
+          sx={{
+            fontFamily: "monospace",
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: 30,
+
+          }}
+        >
+          {" "}
+          {formatTime(timer)}
+        </Box>
       </Stack>
     </Paper>
   );
