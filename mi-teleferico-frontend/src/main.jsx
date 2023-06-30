@@ -11,6 +11,8 @@ import {
 import HomePage from './pages/HomePage.jsx'
 import InfoPage from './pages/InfoPage.jsx'
 import SearchPage from './pages/SearchPage'
+import LinePage from './pages/LinePage'
+import { getLineas } from './services/service'
 
 const router = createBrowserRouter([
   {
@@ -24,7 +26,16 @@ const router = createBrowserRouter([
       {
         path: "buscar",
         element: <SearchPage/>
+      },
+      {
+        path: "linea/:id",
+        element: <LinePage/>,
+        loader: async ({params}) => {
+          const {id} = params;
+          return await getLineas().data.filter(linea =>  id===linea.id);
+        }
       }
+    
     ]
   },
   {
