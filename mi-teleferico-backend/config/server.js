@@ -7,4 +7,13 @@ module.exports = ({ env }) => ({
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
+  middleware: {
+    public: {
+      path: './public',
+      options: {
+        index: false,
+        redirect: false,
+      },
+    },
+  },
 });
