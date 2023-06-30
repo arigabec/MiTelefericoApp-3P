@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getLineas, getFiles, getEvents } from "../services/service";
 import LinePage from "./LinePage";
 import {  useNavigate } from "react-router-dom";
+import LineCard from "../components/LineCard";
 
 
 const InfoPage = () => {
@@ -48,36 +49,8 @@ const InfoPage = () => {
             </Typography>
             <Grid container spacing={2}>
             {
-                response && response.data.map((line => {
-                    return (
-                        <>
-                            <Grid item xs={12} sm={2.4} >
-                                <Card display='flex' alignItems='center' onClick={() => showMe(line)}>
-                                    <CardContent>
-                                    <Grid container spacing={2} alignItems="center">
-                                        <Grid item xs={1} />
-                                        <Grid item xs={5}>
-                                            { line.attributes.logo && (
-                                                <CardMedia
-                                                    sx= {{width: 50, height: 50}}
-                                                    component="img"
-                                                    src={getImage(files, line.attributes.logo)} // Replace with the URL of your image
-                                                    alt="logo"
-                                                />
-                                            )}
-                                        </Grid>
-                                        <Grid item xs={6}>
-                                            <Typography variant="h6" component="div" gutterBottom sx={{mt: 1}}>
-                                            Línea {line.attributes.nombre}
-                                            </Typography>
-                                        </Grid>
-                                    </Grid>
-                                    </CardContent>
-                                </Card>
-                            </Grid>
-                        </>
-                    )
-                }))
+                response && response.data.map((line => 
+                    <LineCard line={line}/>))
             }
             </Grid>
             <Typography sx={{ fontSize: 30, mt: 7, mb:2 }} color="text.secondary" gutterBottom>

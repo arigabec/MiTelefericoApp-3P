@@ -22,6 +22,10 @@ const router = createBrowserRouter([
     element: <HomePage />,
     children: [
       {
+        path: "",
+        element: <Navigate to="/info" />
+      },
+      {
         path: "info",
         element: <InfoPage />,
       },
@@ -29,10 +33,7 @@ const router = createBrowserRouter([
         path: "buscar",
         element: <SearchPage />,
       },
-      {
-        path: "sugerencia",
-        element: <SuggestionPage />,
-      },
+    
       {
         path: "linea/:id",
         element: <LinePage />,

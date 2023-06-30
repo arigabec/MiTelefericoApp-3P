@@ -24,7 +24,7 @@ const NextCableCar = () => {
   };
 
   return (
-    <Paper sx={{ weight: 1, py: 2 }}>
+    <Paper sx={{ weight: 1, py: 2, borderRadius: '20px' }} elevation={5}>
       <Stack direction="column">
         <Box sx={{
             fontFamily: "sans-serif",
