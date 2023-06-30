@@ -4,7 +4,8 @@
   "info": {
     "singularName": "linea",
     "pluralName": "lineas",
-    "displayName": "Linea"
+    "displayName": "Linea",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,18 +18,22 @@
     "zona": {
       "type": "string"
     },
-    "horarios": {
-      "type": "text"
-    },
     "imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "duracion": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "text"
     }
   }
 }

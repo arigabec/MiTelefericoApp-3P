@@ -1,26 +1,12 @@
 import { AppBar, Toolbar, Typography, Container, Grid, Card, CardContent } from '@mui/material';
 import NavBar from '../components/NavBar';
-import { getLineas } from '../services/service';
-import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 const HomePage = () => {
-    const [response, setResponse] = useState();
-
-    const getData = async () => {
-        const dataLineas = await getLineas();
-        setResponse(dataLineas);
-    }
-
-    useEffect(()=>{
-        getData();
-    }, []);
-
     return (
         <div>
-        <NavBar />
-        
-        <Outlet/>
+            <NavBar />
+            <Outlet/>
         </div>
     );
 };
