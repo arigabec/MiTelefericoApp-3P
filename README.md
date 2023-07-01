@@ -3,7 +3,7 @@
 
 El siguiente proyecto posee:
 
-* Una pantalla inicial donde puede acceder a la información de cada linea que posee el Teleferico de La Paz y la sessión de eventos.
+* Una pantalla inicial donde puede acceder a la información de cada linea que posee el Teleferico de La Paz y la sección de eventos.
   
 * Si selecciona cualquiera de las lineas accederá a otra pantalla con información de la linea tal sea:
     * Mapa de Ruta
