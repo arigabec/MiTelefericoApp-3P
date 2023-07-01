@@ -19,8 +19,7 @@ const NavBar = () => {
           <Button color="inherit" onClick={() => goTo('/mapa')}>
             Mapa
           </Button>
-          <Button color="inherit" onClick={() => goTo('/buscar')}> Buscar </Button>
-          <Button color="inherit" onClick={() => goTo('/buscar')}> Sugerencias </Button>
+          <Button color="inherit" onClick={() => goTo('/buscar')}> Buscar/Sugerencias </Button>
       </Toolbar>
     </AppBar>
   );

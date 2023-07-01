@@ -25,10 +25,6 @@ const SuggestionPage = () => {
       }
       console.log(params);
       postReview(params);
-      // postReview({
-      //   correo: data.correo,
-      //   mensaje: data.mensaje,
-      // });
     }
   }
   return (
