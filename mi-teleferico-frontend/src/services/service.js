@@ -15,3 +15,7 @@ export const getEvents = async () => {
     return response.data;
 }
 
+export const postReview = async (data) => {
+    const response = await axios.post('http://localhost:1337/api/sugerencias', data);
+    return response.data;
+};
