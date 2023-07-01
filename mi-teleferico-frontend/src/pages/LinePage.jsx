@@ -108,6 +108,25 @@ const LinePage = () => {
             </Box>
             <NextCableCar />
             <Horario />
+            <Box
+              sx={{
+                fontFamily: "monospace",
+                fontWeight: "bold",
+                textAlign: "center",
+                fontSize: 30,
+              }}
+            >
+              Duración del trayecto: 
+            </Box>
+            <Box sx={{
+              fontFamily: "monospace",
+              textAlign: "center",
+              fontWeight: "medium",
+              fontSize: 24,
+
+            }}>
+              {linea[0].attributes.duracion}
+            </Box>
           </Stack>
         </Stack>
       </Paper>
