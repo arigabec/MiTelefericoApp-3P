@@ -21,6 +21,8 @@ npm install
 npm run dev
 ```
 
+
+
 ### Instrucciones para instalar el proyecto - parte backend
 ```
 npm install
