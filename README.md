@@ -11,6 +11,10 @@ El siguiente proyecto posee:
     * Si esta activa
     * En cuanto llegará la siguiente cabina
 
+ * A su vez, posee una pagina donde podrá realizar una busqueda por zonas donde se verán las lineas del teleférico disponibles
+
+ * Buzón de sugerencias con el cual puede el usuario escribir su queja otorgando su correo electrónico y su mensaje.
+
 ### Instrucciones para instalar el proyecto - parte frontend
 ```
 npm install
